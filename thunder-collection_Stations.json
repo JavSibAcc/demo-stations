@@ -1,0 +1,83 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Stations",
+    "collectionId": "d4948947-00e8-47ad-89d6-67c5c3bb4ce6",
+    "dateExported": "2024-07-04T01:41:43.980Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "99afa44b-e115-4e33-ac99-c02a7a77523b",
+            "colId": "d4948947-00e8-47ad-89d6-67c5c3bb4ce6",
+            "containerId": "",
+            "name": "getAllStations",
+            "url": "http://localhost:8080/api/getAllStations",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-07-03T21:29:03.730Z",
+            "modified": "2024-07-03T21:29:03.730Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "660860fd-e42f-4a8e-a1d3-d7bfd18b5de9",
+            "colId": "d4948947-00e8-47ad-89d6-67c5c3bb4ce6",
+            "containerId": "",
+            "name": "getAllPaths",
+            "url": "http://localhost:8080/api/getAllPaths",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-07-03T23:43:29.044Z",
+            "modified": "2024-07-03T23:43:49.145Z",
+            "headers": []
+        },
+        {
+            "_id": "8050a838-4248-45e1-a91c-f6563ac9ca3f",
+            "colId": "d4948947-00e8-47ad-89d6-67c5c3bb4ce6",
+            "containerId": "",
+            "name": "stations",
+            "url": "http://localhost:8080/api/stations/2",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-07-03T21:29:47.123Z",
+            "modified": "2024-07-03T23:07:18.766Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"lu\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "60738246-e3b5-49cd-b87f-72624146d20b",
+            "colId": "d4948947-00e8-47ad-89d6-67c5c3bb4ce6",
+            "containerId": "",
+            "name": "paths",
+            "url": "http://localhost:8080/api/paths/2",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-07-04T00:05:50.178Z",
+            "modified": "2024-07-04T00:06:54.981Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{ \r  \"cost\":100.2, \r  \"source_id\":2, \r  \"destination_id\":3 \r}\r",
+                "form": []
+            }
+        },
+        {
+            "_id": "a72c18fd-53e8-47e0-be41-97ef61e4e9d4",
+            "colId": "d4948947-00e8-47ad-89d6-67c5c3bb4ce6",
+            "containerId": "",
+            "name": "ShortestPath",
+            "url": "http://localhost:8080/api/paths/2/7",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-07-04T00:50:10.775Z",
+            "modified": "2024-07-04T01:29:34.036Z",
+            "headers": []
+        }
+    ],
+    "ref": "HhoapYasuTNKvs1Kl8em1zDlROoI1_jTV-HweAcpoo_WRfI8bwZZBv_wjY9-7Y7qcADfQzTwtKHWNbopNR-8Jg"
+}
