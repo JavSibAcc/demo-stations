@@ -2,6 +2,7 @@ package com.example.demo.Controller;
 
 import com.example.demo.Model.*;
 import com.example.demo.Service.PathService;
+import com.example.demo.Service.ShortestPathService;
 import com.example.demo.Service.StationService;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,9 @@ public class ApiDemo {
 
     @Autowired
     PathService pathService;
+
+    @Autowired
+    ShortestPathService shortestPathService;
 
     @GetMapping("/saludar")
     public String saludar()
@@ -69,14 +73,13 @@ public class ApiDemo {
     @GetMapping("/paths/{source_id}/{destination_id}")
     public Object getShortestPath(@PathVariable("source_id") Long source_id, @PathVariable("destination_id") Long destination_id)
     {
-        /*
-        Object object = pathService.getShortestPath(source_id, destination_id);
+        Object object = shortestPathService.getShortestPath(source_id, destination_id);
         if ( null == object )
         {
             return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
         }
         return object; //("{ \"status\": \"ok\" }");
-        */
-        return ("{ \"source_id\": " + source_id + ", \"destination_id\": " + destination_id + " }");
+
+        //return ("{ \"source_id\": " + source_id + ", \"destination_id\": " + destination_id + " }");
     }
 }

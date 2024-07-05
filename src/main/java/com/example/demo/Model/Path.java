@@ -26,6 +26,12 @@ public class Path {
         this.destination_id = destination_id;
     }
 
+    public Path(Long id, Double cost, Long source_id, Long destination_id) {
+        this.cost = cost;
+        this.source_id = source_id;
+        this.destination_id = destination_id;
+    }
+
     public Long getId() {
         return id;
     }

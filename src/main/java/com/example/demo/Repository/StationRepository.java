@@ -20,8 +20,11 @@ public class StationRepository {
 
 
     private StationRepository() {
-        //Station a = new Station(1L, "glo");
-        hmStation.put(1L, "glo");
+        hmStation.put(1L, "Buenos Aires");
+        hmStation.put(2L, "Paris");
+        hmStation.put(3L, "Berlin");
+        hmStation.put(4L, "Roma");
+        hmStation.put(5L, "Barcelona");
     }
 
     public HashMap<Long, String> findAll() {
