@@ -1,11 +1,15 @@
 package com.example.demo.Service;
 
 import com.example.demo.Model.Path;
+import com.example.demo.Model.resultDijkstra;
 import com.example.demo.Repository.PathRepository;
+import com.example.demo.Repository.StationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+
+import static java.util.Arrays.*;
 
 @Service
 public class ShortestPathServiceImpl implements ShortestPathService {
@@ -13,48 +17,48 @@ public class ShortestPathServiceImpl implements ShortestPathService {
     @Autowired
     PathRepository pathRepository;
 
-    HashMap<Long, Path> hmPath;
-    int V = 0;
+    @Autowired
+    StationRepository stationRepository;
+
     double[][] graph;
 
     @Override
-    public HashMap<Long, String> getShortestPath(Long source_id, Long destination_id) {
+    public resultDijkstra getShortestPath(Long source_id, Long destination_id) {
 
-        createMatrix();
+        int orig = Math.toIntExact(source_id);
+        int desti = Math.toIntExact(destination_id);
+        int V = stationRepository.hmStation.size();
+        if (orig > V-1 || desti > V-1)
+            return null;
 
-        return null;
+        HashMap<Long, Path> hmPath = pathRepository.hmPath;
+        graph = createMatrix(hmPath, V);
+
+        return dijkstra(graph, orig, desti);
     }
 
-    @Override
-    public Long createShortestPath() {
-        return null;
-    }
 
-    private void createMatrix()
+    private double[][] createMatrix(HashMap<Long, Path> hmPath, int V)
     {
-        this.hmPath = pathRepository.hmPath;
-        this.V = hmPath.size();
-        this.graph = new double[V][V];
-
-        double[][] grapho = {
-                {0, 10, 2, 80},
-                {10, 0, 4, 50},
-                {2, 4, 0, 100},
-                {80, 50, 100, 0}
-        };
-
-        dijkstra(grapho, 0, grapho.length);
-    }
-
-    private static void printSolution(double[] dist, String[] ruta, int V, int src)
-    {
-        System.out.println("-----------------------------------------------------");
-        System.out.println("Distancia al vertice desde el origen");
-        System.out.println("Origen \t\t Destino \t Distancia \t Ruta");
+        double[][] graph = new double[V][V];
         for (int i = 0; i < V; i++) {
-            System.out.println(src + " \t\t\t " + i + " \t\t\t " + dist[i] + " \t\t " + ruta[i]);
+            for (int j = 0; j < V; j++) {
+                graph[i][j] = Double.MAX_VALUE;
+                if(i == j)
+                    graph[i][j] = 0;
+            }
         }
-        System.out.println("-----------------------------------------------------");
+
+        for (Long clave:hmPath.keySet()) {
+            Path valor = hmPath.get(clave);
+            //System.out.println("Clave: " + clave + ", valor: " + valor);
+
+            int i = valor.getSource_id();
+            int j = valor.getDestination_id();
+            graph[i][j] = valor.getCost();
+            graph[j][i] = valor.getCost();  // bidireccional
+        }
+        return graph;
     }
 
     private static int minDistance(double[] dist, boolean[] verticeYaProcesado, int V)
@@ -71,8 +75,9 @@ public class ShortestPathServiceImpl implements ShortestPathService {
         return min_index;
     }
 
-    private static void dijkstra(double[][] grafo, int src, int V)
+    private static resultDijkstra dijkstra(double[][] grafo, int orig, int dest)
     {
+        int V = grafo.length;
         double[] dist = new double[V];
         String[] ruta = new String[V];
         boolean[] verticeYaProcesado = new boolean[V];
@@ -82,7 +87,7 @@ public class ShortestPathServiceImpl implements ShortestPathService {
             ruta[i] = "";
             verticeYaProcesado[i] = false;
         }
-        dist[src] = 0;
+        dist[orig] = 0;
 
         for (int count = 0; count < V-1; count++)
         {
@@ -101,6 +106,11 @@ public class ShortestPathServiceImpl implements ShortestPathService {
         }
         for (int v = 0; v < V; v++) ruta[v] += v;
 
-        printSolution(dist, ruta, V, src);
+        long[] arrDest = stream(ruta[dest].split(","))
+                .map(String::trim)
+                .mapToLong(Long::valueOf)
+                .toArray();
+
+        return (new resultDijkstra(arrDest, dist[dest]));
     }
 }

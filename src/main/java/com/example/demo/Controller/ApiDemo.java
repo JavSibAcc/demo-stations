@@ -79,7 +79,5 @@ public class ApiDemo {
             return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
         }
         return object; //("{ \"status\": \"ok\" }");
-
-        //return ("{ \"source_id\": " + source_id + ", \"destination_id\": " + destination_id + " }");
     }
 }

@@ -11,10 +11,10 @@ public class PathRepository {
     public HashMap<Long, Path> hmPath = new HashMap<Long, Path>();
 
     private PathRepository() {
-        Path p = new Path(1L, 10.2, 1L, 2L);
-        hmPath.put(1L, p);
-
-        //double[][] graph = new double[4][4];
+        hmPath.put(1L, new Path(1L, 50.0, 0L, 1L));
+        hmPath.put(2L, new Path(2L, 100.0, 0L, 2L));
+        hmPath.put(3L, new Path(3L, 60.0, 0L, 3L));
+        hmPath.put(4L, new Path(4L, 20.0, 3L, 2L));
     }
 
     public HashMap<Long, Path> findAll() {

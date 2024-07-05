@@ -27,6 +27,7 @@ public class Path {
     }
 
     public Path(Long id, Double cost, Long source_id, Long destination_id) {
+        this.id = id;
         this.cost = cost;
         this.source_id = source_id;
         this.destination_id = destination_id;
@@ -40,16 +41,16 @@ public class Path {
         this.id = id;
     }
 
-    public Long getSource_id() {
-        return source_id;
+    public int getSource_id() {
+        return Math.toIntExact(source_id);
     }
 
     public void setSource_id(Long source_id) {
         this.source_id = source_id;
     }
 
-    public Long getDestination_id() {
-        return destination_id;
+    public int getDestination_id() {
+        return Math.toIntExact(destination_id);
     }
 
     public void setDestination_id(Long destination_id) {
@@ -62,5 +63,15 @@ public class Path {
 
     public void setCost(Double cost) {
         this.cost = cost;
+    }
+
+    @Override
+    public String toString() {
+        return "Path{" +
+                "id=" + id +
+                ", source_id=" + source_id +
+                ", destination_id=" + destination_id +
+                ", cost=" + cost +
+                '}';
     }
 }
