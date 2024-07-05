@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "Stations",
     "collectionId": "d4948947-00e8-47ad-89d6-67c5c3bb4ce6",
-    "dateExported": "2024-07-04T01:41:43.980Z",
+    "dateExported": "2024-07-05T18:58:14.503Z",
     "version": "1.2",
     "folders": [],
     "requests": [
@@ -37,15 +37,15 @@
             "colId": "d4948947-00e8-47ad-89d6-67c5c3bb4ce6",
             "containerId": "",
             "name": "stations",
-            "url": "http://localhost:8080/api/stations/2",
+            "url": "http://localhost:8080/api/stations/5",
             "method": "PUT",
             "sortNum": 30000,
             "created": "2024-07-03T21:29:47.123Z",
-            "modified": "2024-07-03T23:07:18.766Z",
+            "modified": "2024-07-05T18:56:28.253Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"name\":\"lu\"\n}",
+                "raw": "{\n  \"name\":\"Lima\"\n}",
                 "form": []
             }
         },
@@ -54,15 +54,15 @@
             "colId": "d4948947-00e8-47ad-89d6-67c5c3bb4ce6",
             "containerId": "",
             "name": "paths",
-            "url": "http://localhost:8080/api/paths/2",
+            "url": "http://localhost:8080/api/paths/5",
             "method": "PUT",
             "sortNum": 40000,
             "created": "2024-07-04T00:05:50.178Z",
-            "modified": "2024-07-04T00:06:54.981Z",
+            "modified": "2024-07-05T18:57:27.857Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{ \r  \"cost\":100.2, \r  \"source_id\":2, \r  \"destination_id\":3 \r}\r",
+                "raw": "{ \n  \"cost\":30.2, \n  \"source_id\":2, \n  \"destination_id\":5 \n}\n",
                 "form": []
             }
         },
@@ -71,13 +71,13 @@
             "colId": "d4948947-00e8-47ad-89d6-67c5c3bb4ce6",
             "containerId": "",
             "name": "ShortestPath",
-            "url": "http://localhost:8080/api/paths/2/7",
+            "url": "http://localhost:8080/api/paths/2/5",
             "method": "GET",
             "sortNum": 50000,
             "created": "2024-07-04T00:50:10.775Z",
-            "modified": "2024-07-04T01:29:34.036Z",
+            "modified": "2024-07-05T18:57:48.487Z",
             "headers": []
         }
     ],
-    "ref": "HhoapYasuTNKvs1Kl8em1zDlROoI1_jTV-HweAcpoo_WRfI8bwZZBv_wjY9-7Y7qcADfQzTwtKHWNbopNR-8Jg"
+    "ref": "HhoapYasuTNKvs1Kl8em12ud7_jg1vqn7zbbHtjooEqzu-ULfGFJ4G56QZUHx5v6du0KW4uR4gloqrO1i9p_Pw"
 }
